@@ -4,8 +4,11 @@ const ctx = canvas.getContext('2d');
 const spinBtn = document.getElementById('spinBtn');
 const modal = document.getElementById('prizeModal');
 const prizeText = document.getElementById('prizeText');
-const closeModalBtn = document.getElementById('closeModalBtn');
 const closeBtn = document.querySelector('.close');
+const claimForm = document.getElementById('claimForm');
+const prizeCode = document.getElementById('prizeCode');
+const copyCodeBtn = document.getElementById('copyCodeBtn');
+const sendCodeBtn = document.getElementById('sendCodeBtn');
 const result = document.querySelector('.result-text');
 let hasSpun = false; // Variable para controlar si ya se ha girado
 let currentRotation = 0;
@@ -107,12 +110,18 @@ spinBtn.addEventListener("click", async () => {
     alert('¡Solo puedes girar una vez!');
     return;
   }
-  
+
+  // Deshabilitar el botón de giro
+  spinBtn.disabled = true;
   spinBtn.disabled = true;
   
   try {
     const result = await girarRuleta();
     const { premio, rotacion } = result;
+    
+    // Generar código único
+    const code = generateUniqueCode(premio);
+    prizeCode.value = code;
     
     // Animar la ruleta
     canvas.style.transition = "transform 4s cubic-bezier(0.25, 1, 0.5, 1)";
@@ -134,15 +143,59 @@ spinBtn.addEventListener("click", async () => {
   }
 });
 
-// 🎯 Evento del botón de cerrar modal
-closeModalBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
+// 🎯 Función para generar un código único
+function generateUniqueCode(premio) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let code = 'UNTRAPO+';
+  for (let i = 0; i < 6; i++) {
+    code += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return `Soy el ganador del ${premio} mi código es ${code}`;
+}
+
+// 🎯 Evento para copiar el código
+if (copyCodeBtn) {
+  copyCodeBtn.addEventListener('click', () => {
+    const code = prizeCode.value;
+    navigator.clipboard.writeText(code).then(() => {
+      copyCodeBtn.textContent = '¡Copiado!';
+      setTimeout(() => {
+        copyCodeBtn.textContent = 'Copiar código';
+      }, 2000);
+    }).catch(err => {
+      console.error('Error al copiar:', err);
+      alert('No se pudo copiar el código. Por favor, intenta nuevamente.');
+    });
+  });
+}
+
 
 // 🎯 Evento del botón de cerrar modal
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
+closeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+  hasSpun = false;
+  spinBtn.disabled = false;
+  spinBtn.textContent = 'Girar 🎯';
 });
+
+// 🎯 Evento del enlace de Instagram
+if (sendCodeBtn) {
+  sendCodeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.open(sendCodeBtn.href, '_blank');
+  });
+}
+
+
+// 🎯 Evento del botón de cerrar modal
+closeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+  hasSpun = false;
+  spinBtn.disabled = false;
+  spinBtn.textContent = 'Girar 🎯';
+  claimForm.style.display = 'none';
+});
+
 
 // 🎯 Evento de click en el overlay
 window.addEventListener("click", (event) => {

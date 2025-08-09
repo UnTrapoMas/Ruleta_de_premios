@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ruleta de Premios</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body>
   <div class="container">
@@ -23,51 +23,44 @@
         <span class="close">&times;</span>
         <h2>¡Felicidades!</h2>
         <div id="prizeText" class="prize-text"></div>
-        <button id="closeModalBtn" class="modal-button">¡Volver a jugar!</button>
-      </div>
-    </div>
-    
-    <!-- Modal de premio -->
-    <div id="prizeModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>¡Felicidades!</h2>
-        <div id="prizeText" class="prize-text"></div>
-        <button id="closeModalBtn" class="modal-button">¡Volver a jugar!</button>
+        <div id="claimForm" class="claim-form">
+          <div class="code-container">
+            <textarea id="prizeCode" class="prize-code" readonly></textarea>
+            <button id="copyCodeBtn" class="copy-button">Copiar código</button>
+          </div>
+          <p class="claim-text">Envíanos un mensaje directo a Instagram con este mensaje para reclamar tu premio.</p>
+          <a href="https://www.instagram.com/untrapomas_" target="_blank" id="sendCodeBtn" class="modal-button">
+            Ir a Instagram
+          </a>
+        </div>
       </div>
     </div>
 
     <!-- Probabilidades de cada premio -->
-    <div class="probabilities">
-      <h2>Probabilidades</h2>
-      <div class="probability-list">
-        <div class="probability-item">
+    <div class="prices">
+      <h2>Premios</h2>
+      <div class="prices-list">
+        <div class="prices-item">
           <span class="label">10% Descuento</span>
-          <span class="prob">25%</span>
         </div>
-        <div class="probability-item">
+        <div class="prices-item">
           <span class="label">20% Descuento</span>
-          <span class="prob">20%</span>
         </div>
-        <div class="probability-item">
+        <div class="prices-item">
           <span class="label">30% Descuento</span>
-          <span class="prob">15%</span>
         </div>
-        <div class="probability-item">
+        <div class="prices-item">
           <span class="label">50% Descuento</span>
-          <span class="prob">10%</span>
         </div>
-        <div class="probability-item">
+        <div class="prices-item">
           <span class="label">Premio Sorpresa</span>
-          <span class="prob">15%</span>
         </div>
-        <div class="probability-item">
+        <div class="prices-item">
           <span class="label">¡Gracias por participar!</span>
-          <span class="prob">15%</span>
         </div>
       </div>
     </div>
   </div>
-  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script src="static/js/script.js"></script>
 </body>
 </html>

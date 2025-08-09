@@ -88,10 +88,104 @@ body {
   font-weight: bold;
 }
 
-.modal-button {
-  margin-top: 20px;
+.code-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+}
+
+#prizeCode {
+  width: 100%;
+  height: 60px;
+  padding: 15px;
+  font-size: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  flex: 1;
+  resize: none;
+  background-color: white;
+}
+
+#prizeCode:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.copy-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.copy-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.copy-button:active {
+  transform: translateY(0);
+}
+
+.claim-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #333;
+  line-height: 1.5;
+}
+
+#sendCodeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   padding: 15px 30px;
   font-size: 18px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#sendCodeBtn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+#sendCodeBtn:active {
+  transform: translateY(0);
+}
+
+.instagram-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.claim-form {
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.modal-button {
+  padding: 12px 24px;
+  font-size: 16px;
   cursor: pointer;
   background-color: #4CAF50;
   color: white;
@@ -101,7 +195,7 @@ body {
   transition: background-color 0.3s;
 }
 
-.modal-button:hover {
+.modal-button:hover:not(:disabled) {
   background-color: #45a049;
 }
 
@@ -144,21 +238,21 @@ body {
 }
 
 /* Probabilidades */
-.probabilities {
+.prices {
   margin-top: 30px;
   padding: 20px;
   background-color: #f8f8f8;
   border-radius: 8px;
 }
 
-.probability-list {
+.prices-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
   margin-top: 15px;
 }
 
-.probability-item {
+.prices-item {
   background-color: white;
   padding: 15px;
   border-radius: 5px;
@@ -170,9 +264,4 @@ body {
 
 .label {
   font-weight: bold;
-}
-
-.prob {
-  color: #666;
-  font-size: 16px;
 }
