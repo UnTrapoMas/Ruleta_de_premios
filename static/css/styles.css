@@ -11,50 +11,6 @@ body {
   color: #333;
 }
 
-/* Media queries para dispositivos móviles */
-@media screen and (max-width: 600px) {
-  .container {
-    padding: 15px;
-    width: 95%;
-    margin: 5px;
-  }
-
-  .arrow {
-    font-size: 20px;
-  }
-
-  .spin-button {
-    padding: 10px 20px;
-    font-size: 14px;
-    min-width: 120px;
-  }
-
-  .modal-content {
-    margin: 10% auto;
-    width: 90%;
-  }
-
-  .prize-text {
-    font-size: 20px;
-  }
-
-  .code-container {
-    padding: 10px;
-  }
-
-  #prizeCode {
-    height: 50px;
-    padding: 10px;
-    font-size: 13px;
-  }
-
-  .copy-button {
-    padding: 10px 20px;
-    font-size: 14px;
-    min-width: 120px;
-  }
-}
-
 .container {
   text-align: center;
   background-color: white;
@@ -309,4 +265,53 @@ body {
 
 .label {
   font-weight: bold;
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 900px) {
+  .container {
+    padding: 15px;
+    width: 95%;
+    margin: 5px;
+  }
+
+  .arrow {
+    font-size: 20px;
+  }
+
+  #wheel {
+    width: 90%;
+    height: 90%;
+  }
+
+  .spin-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    min-width: 120px;
+  }
+
+  .modal-content {
+    margin: 10% auto;
+    width: 90%;
+  }
+
+  .prize-text {
+    font-size: 20px;
+  }
+
+  .code-container {
+    padding: 10px;
+  }
+
+  #prizeCode {
+    height: 50px;
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .copy-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    min-width: 120px;
+  }
 }
