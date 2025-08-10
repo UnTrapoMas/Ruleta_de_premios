@@ -19,11 +19,6 @@ body {
     margin: 5px;
   }
 
-  #wheel {
-    width: 250px;
-    height: 250px;
-  }
-
   .arrow {
     font-size: 20px;
   }
@@ -88,10 +83,10 @@ body {
 }
 
 #wheel {
-  width: 500px;
-  height: 500px;
+  width: 95%;
+  height: 95%;
   border-radius: 50%;
-  border: 8px solid #333;
+  border: 10px solid #333;
   transition: transform 4s cubic-bezier(0.25, 1, 0.5, 1);
   background-color: transparent;
   position: relative;
