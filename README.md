@@ -1,6 +1,6 @@
 # Ruleta de Premios
 
-Una ruleta interactiva para promociones y sorteos.
+Una ruleta interactiva para promociones y regalos.
 
 ## Características
 
