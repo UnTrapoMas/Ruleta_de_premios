@@ -15,12 +15,12 @@ let currentRotation = 0;
 
 // 🎯 Secciones con probabilidades
 const sections = [
+  { label: "5% Descuento", prob: 50 },
   { label: "10% Descuento", prob: 25 },
-  { label: "20% Descuento", prob: 20 },
-  { label: "30% Descuento", prob: 15 },
-  { label: "50% Descuento", prob: 10 },
-  { label: "Premio Sorpresa", prob: 15 },
-  { label: "¡Gracias por participar!", prob: 15 }
+  { label: "15% Descuento", prob: 15 },
+  { label: "20% Descuento", prob: 10 },
+  { label: "Camiseta de regalo", prob: 0 },
+  { label: "¡Gracias por participar!", prob: 0 }
 ];
 
 // 🎲 Construir array ponderado
