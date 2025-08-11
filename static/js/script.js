@@ -16,9 +16,9 @@ let currentRotation = 0;
 // 🎯 Secciones con probabilidades
 const sections = [
   { label: "5% de descuento", prob: 50 },
-  { label: "10% de descuento", prob: 25 },
+  { label: "10% de descuento", prob: 30 },
   { label: "15% de descuento", prob: 15 },
-  { label: "20% de descuento", prob: 10 },
+  { label: "20% de descuento", prob: 5 },
   { label: "Camiseta de regalo", prob: 0 },
   { label: "¡Gracias por participar!", prob: 0 }
 ];
@@ -83,11 +83,9 @@ function girarRuletaFront() {
   const anglePerSection = 360 / sections.length;
   const extraSpins = 5 * 360; // 5 vueltas completas
   const Correction = anglePerSection * (weightedOptions.length - winnerIndex);
-  const totalRotation = extraSpins + Correction;
+  const totalRotation = extraSpins + Correction;  
 
-  const hasSpun = true;
-
-  return { premio: winnerLabel, rotacion: totalRotation, hasSpun };
+  return { premio: winnerLabel, rotacion: totalRotation };
 }
 
 async function girarRuleta() {
@@ -115,11 +113,10 @@ spinBtn.addEventListener("click", async () => {
 
   // Deshabilitar el botón de giro
   spinBtn.disabled = true;
-  spinBtn.disabled = true;
   
   try {
     const result = await girarRuleta();
-    const { premio, rotacion, hasSpun } = result;
+    const { premio, rotacion } = result;
     
     // Generar código único
     const code = generateUniqueCode(premio);
@@ -152,7 +149,7 @@ function generateUniqueCode(premio) {
   for (let i = 0; i < 6; i++) {
     code += characters.charAt(Math.floor(Math.random() * characters.length));
   }
-  return `Soy el ganador del ${premio}. Mi código es ${code}`;
+  return `Soy el ganador del ${premio} mi código es ${code}`;
 }
 
 // 🎯 Evento para copiar el código
@@ -175,9 +172,9 @@ if (copyCodeBtn) {
 // 🎯 Evento del botón de cerrar modal
 closeBtn.addEventListener('click', () => {
   modal.style.display = 'none';
-  hasSpun = false;
   spinBtn.disabled = false;
-  spinBtn.textContent = 'Girar 🎯';
+  spinBtn.textContent = 'Girar ';
+  claimForm.style.display = 'none';
 });
 
 // 🎯 Evento del enlace de Instagram
@@ -187,17 +184,6 @@ if (sendCodeBtn) {
     window.open(sendCodeBtn.href, '_blank');
   });
 }
-
-
-// 🎯 Evento del botón de cerrar modal
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-  hasSpun = false;
-  spinBtn.disabled = false;
-  spinBtn.textContent = 'Girar 🎯';
-  claimForm.style.display = 'none';
-});
-
 
 // 🎯 Evento de click en el overlay
 window.addEventListener("click", (event) => {
