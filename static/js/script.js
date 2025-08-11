@@ -85,7 +85,9 @@ function girarRuletaFront() {
   const Correction = anglePerSection * (weightedOptions.length - winnerIndex);
   const totalRotation = extraSpins + Correction;
 
-  return { premio: winnerLabel, rotacion: totalRotation };
+  const hasSpun = true;
+
+  return { premio: winnerLabel, rotacion: totalRotation, hasSpun };
 }
 
 async function girarRuleta() {
@@ -117,7 +119,7 @@ spinBtn.addEventListener("click", async () => {
   
   try {
     const result = await girarRuleta();
-    const { premio, rotacion } = result;
+    const { premio, rotacion, hasSpun } = result;
     
     // Generar código único
     const code = generateUniqueCode(premio);
@@ -150,7 +152,7 @@ function generateUniqueCode(premio) {
   for (let i = 0; i < 6; i++) {
     code += characters.charAt(Math.floor(Math.random() * characters.length));
   }
-  return `Soy el ganador del ${premio} mi código es ${code}`;
+  return `Soy el ganador del ${premio}. Mi código es ${code}`;
 }
 
 // 🎯 Evento para copiar el código
