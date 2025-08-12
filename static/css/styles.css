@@ -39,8 +39,8 @@ body {
 }
 
 #wheel {
-  width: 95%;
-  height: 95%;
+  width: 85%;
+  height: 85%;
   border-radius: 50%;
   border: 10px solid #333;
   transition: transform 4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -274,8 +274,8 @@ body {
   }
 
   #wheel {
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 80%;
   }
 
   .spin-button {
