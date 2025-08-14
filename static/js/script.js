@@ -15,8 +15,8 @@ let currentRotation = 0;
 
 // 🎯 Secciones con probabilidades
 const sections = [
-  { label: "5% de descuento", prob: 50 },
-  { label: "10% de descuento", prob: 30 },
+  { label: "5% de descuento", prob: 30 },
+  { label: "10% de descuento", prob: 50 },
   { label: "15% de descuento", prob: 15 },
   { label: "20% de descuento", prob: 5 },
   { label: "Camiseta de regalo", prob: 0 },
